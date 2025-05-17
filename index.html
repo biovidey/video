@@ -94,8 +94,13 @@
   }
 
   // Load video dari videos.json
-  fetch('videos.json')
-    .then(res => res.json())
+  fetch('https://raw.githubusercontent.com/biovidey/video/main/data/videos.json')
+    .then(res => {
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return res.json();
+    })
     .then(data => {
       const container = document.getElementById('video-list');
       data.forEach(video => {
@@ -113,6 +118,9 @@
         container.appendChild(col);
       });
       observer.observe();
+    })
+    .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
     });
 </script></body>
 </html>
