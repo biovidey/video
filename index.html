@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +16,9 @@
 <body>
 <div class="container py-4">
   <h1 class="text-center mb-4">Daftar Video</h1>
-  <div id="video-list" class="row"></div>  <h2 class="text-center mt-5">Iklan Sponsor</h2>
+  <div id="video-list" class="row"></div>
+
+  <h2 class="text-center mt-5">Iklan Sponsor</h2>
   <div id="carouselExampleSlideshow" class="carousel slide mt-3" data-bs-ride="carousel" data-bs-interval="15000">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -44,7 +47,7 @@
       </div>
       <div class="carousel-item">
         <iframe id="sponsorFrame9" src="https://cara-menghasilkan-uang-di-internett.blogspot.com" class="lozad"></iframe>
-      </div>
+              </div>
       <div class="carousel-item">
         <iframe id="sponsorFrame10" src="https://tempat-jual-ikan-hias-rawa-buaya.blogspot.com" class="lozad"></iframe>
       </div>
@@ -58,49 +61,22 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-</div><script>
-  const observer = lozad();
-  observer.observe();
-
-  const carouselSponsor = $('#carouselExampleSlideshow');
-  const totalSponsors = $('.carousel-item iframe').length;
-  const sponsorsVisited = Array(totalSponsors).fill(false);
-  let allVisited = false;
-  let refreshTimeout;
-
-  carouselSponsor.on('slide.bs.carousel', function (e) {
-    const activeItem = $(e.relatedTarget);
-    const activeIndex = $('.carousel-item').index(activeItem);
-
-    sponsorsVisited[activeIndex] = true;
-    allVisited = sponsorsVisited.every(visited => visited);
-
-    clearTimeout(refreshTimeout);
-
-    if (allVisited) {
-      if (activeIndex === totalSponsors - 1) {
-        refreshTimeout = setTimeout(refreshSponsors, 30000);
-      }
-    }
-  });
-
-  function refreshSponsors() {
-    $('.carousel-item.active iframe').each(function() {
-      this.src = this.src;
-      console.log('Refreshed iframe: ' + this.id + ' at ' + new Date().toLocaleTimeString());
-    });
-    sponsorsVisited.fill(false);
-    allVisited = false;
-  }
-
+</div>
+<script>
   // Load video dari videos.json
-  fetch('https://raw.githubusercontent.com/biovidey/video/main/data/videos.json')
+  fetch('/videos.json') // Ganti dengan path yang sesuai
     .then(res => {
       if (!res.ok) {
         throw new Error('Network response was not ok');
       }
       return res.json();
     })
+    .then(data => {
+      // Proses data seperti sebelumnya
+    })
+    .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
+    });
     .then(data => {
       const container = document.getElementById('video-list');
       data.forEach(video => {
@@ -117,10 +93,10 @@
           </div>`;
         container.appendChild(col);
       });
-      observer.observe();
     })
     .catch(error => {
       console.error('There was a problem with the fetch operation:', error);
     });
-</script></body>
+</script>
+</body>
 </html>
