@@ -60,7 +60,7 @@
   const videoId = urlParams.get('id');
 
   // Load video detail dari videos.json
-  fetch('/videos.json') // Ganti dengan path yang sesuai
+  fetch('/data/videos.json') // Ganti dengan path yang sesuai
     .then(res => {
       if (!res.ok) {
         throw new Error('Network response was not ok');
