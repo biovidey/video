@@ -72,12 +72,6 @@
       return res.json();
     })
     .then(data => {
-      // Proses data seperti sebelumnya
-    })
-    .catch(error => {
-      console.error('There was a problem with the fetch operation:', error);
-    });
-    .then(data => {
       const container = document.getElementById('video-list');
       data.forEach(video => {
         const col = document.createElement('div');
