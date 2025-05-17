@@ -1,16 +1,23 @@
 [
   {
     "id": 1,
-    "title": "Video Pertama",
-    "video_url": "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-    "thumbnail_url": "https://sample-videos.com/img/Sample-jpg-image-50kb.jpg",
-    "description": "Ini adalah deskripsi video pertama."
+    "title": "Video 1",
+    "description": "Deskripsi untuk Video 1",
+    "thumbnail": "https://via.placeholder.com/150",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ" // Ganti dengan URL video yang sesuai
   },
   {
     "id": 2,
-    "title": "Video Kedua",
-    "video_url": "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-    "thumbnail_url": "https://sample-videos.com/img/Sample-jpg-image-30kb.jpg",
-    "description": "Deskripsi video kedua di sini."
+    "title": "Video 2",
+    "description": "Deskripsi untuk Video 2",
+    "thumbnail": "https://via.placeholder.com/150",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ" // Ganti dengan URL video yang sesuai
+  },
+  {
+    "id": 3,
+    "title": "Video 3",
+    "description": "Deskripsi untuk Video 3",
+    "thumbnail": "https://via.placeholder.com/150",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ" // Ganti dengan URL video yang sesuai
   }
 ]
